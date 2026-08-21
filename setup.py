@@ -20,7 +20,7 @@ setup_requirements = []
 test_requirements = []
 
 # Get the data from scribd_dl/version.py without importing the package
-exec(compile(open('scribd_dl/version.py').read(), 'version.py', 'exec'))
+exec(compile(open('scribd_dlz/version.py').read(), 'version.py', 'exec'))
 
 setup(
     classifiers=[
