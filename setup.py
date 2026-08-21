@@ -43,8 +43,8 @@ setup(
     },
     include_package_data=True,
     entry_points={
-        # 'console_scripts': ['scribd-dlz = scribd_dl.scribd_dl:main']
-        'console_scripts': ['scribd-dlz = scribd_dl:main']
+        # 'console_scripts': ['scribd-dlz = scribd_dlz.scribd_dlz:main']
+        'console_scripts': ['scribd-dlz = scribd_dlz:main']
     },
     keywords='scribd_dlz',
     name='scribd_dlz',
