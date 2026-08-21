@@ -6,7 +6,7 @@ import sys
 from datetime import datetime
 from selenium.common.exceptions import WebDriverException
 from .scribd_dlz import ScribdDLZ  # noqa: F401
-from .version import AUTHOR, EMAIL, STATUS, VERSION, DATE
+from .version import STATUS, VERSION, DATE
 from .utils import (
     valid_url,
     valid_pages,
@@ -14,8 +14,7 @@ from .utils import (
     RestrictedDocumentError
 )
 
-__author__ = AUTHOR
-__email__ = EMAIL
+
 __status__ = STATUS
 __version__ = VERSION
 __date__ = DATE
