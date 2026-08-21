@@ -4,7 +4,7 @@
 
 import os
 import re
-from scribd_dl.utils import get_modified_time_diff
+from scribd_dlz.utils import get_modified_time_diff
 
 
 def test_16p_last_page(scribd):

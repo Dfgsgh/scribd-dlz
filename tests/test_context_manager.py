@@ -11,7 +11,7 @@ from scribd_dlz.utils import get_modified_time_diff
 def test_context_manager():
     URLS = ['https://www.scribd.com/document/352366744/', 'https://www.scribd.com/document/351688288/']
 
-    with ScribdDL() as session:
+    with ScribdDLZ() as session:
         session.download(URLS[0], pages='1-3')
         session.download(URLS[1], pages='3-5')
 

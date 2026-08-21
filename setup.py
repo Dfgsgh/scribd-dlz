@@ -19,7 +19,7 @@ setup_requirements = []
 
 test_requirements = []
 
-# Get the data from scribd_dl/version.py without importing the package
+# Get the data from scribd_dlz/version.py without importing the package
 exec(compile(open('scribd_dlz/version.py').read(), 'version.py', 'exec'))
 
 setup(
@@ -37,14 +37,14 @@ setup(
     install_requires=requirements,
     license="MIT license",
     long_description=long_description,
-    packages=find_packages(include=['scribd_dl']),
+    packages=find_packages(include=['scribd_dlz']),
     package_data={
         'scribd_dlz': ['assets/README.txt', 'version.py']
     },
     include_package_data=True,
     entry_points={
-        # 'console_scripts': ['scribd-dl = scribd_dl.scribd_dl:main']
-        'console_scripts': ['scribd-dl = scribd_dl:main']
+        # 'console_scripts': ['scribd-dlz = scribd_dl.scribd_dl:main']
+        'console_scripts': ['scribd-dlz = scribd_dl:main']
     },
     keywords='scribd_dlz',
     name='scribd_dlz',

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from scribd_dl.utils import GreaterThanLastPageError
+from scribd_dlz.utils import GreaterThanLastPageError
 
 
 def test_16p_greater_than_last_page(scribd):
