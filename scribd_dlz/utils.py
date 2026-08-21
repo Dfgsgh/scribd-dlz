@@ -24,8 +24,10 @@ class RestrictedDocumentError(Exception):
 def valid_url(u):
     # check = re.match(r'(https://)?www.scribd.com/(?:doc|document|presentation)/\d+(?:/.*|$)', u)
     check = re.match(r'.*scribd.com/(?:doc|document|presentation)/\d+(?:/.*|$)', u)
-    if check:
-        return 'https://www.{}'.format(u[u.find('scribd'):])
+    check2 = re.match(r'https://www\.scribd\.com/embeds/(?P<id>\d+)/content', u)
+    if check or check2:
+        doc_id = re.search(r'(?P<id>\d+)', u).group('id')
+        return "https://www.scribd.com/embeds/{}/content".format(doc_id)
     else:
         msg = 'Not a valid document url : {}'.format(u)
         raise argparse.ArgumentTypeError(msg)

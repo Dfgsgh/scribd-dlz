@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from scribd_dl.utils import RestrictedDocumentError
+from scribd_dlz.utils import RestrictedDocumentError
 
 
 def test_16p_restricted_document(scribd):

@@ -4,7 +4,7 @@
 
 import os
 import re
-from scribd_dl.utils import (
+from scribd_dlz.utils import (
     get_modified_time_diff,
     generate_random_document,
     RestrictedDocumentError

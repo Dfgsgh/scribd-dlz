@@ -3,7 +3,7 @@
 
 from argparse import ArgumentTypeError
 import pytest
-from scribd_dl.utils import (
+from scribd_dlz.utils import (
     valid_url,
     valid_pages,
 )

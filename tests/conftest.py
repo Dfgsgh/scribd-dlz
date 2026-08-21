@@ -4,7 +4,7 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import pytest
-from scribd_dl import ScribdDL
+from scribd_dlz import ScribdDLZ
 
 # def pytest_addoption(parser):
 #     parser.addoption("--driver", action="store", default="chrome", help="Type in browser type")
@@ -17,7 +17,7 @@ def scribd(request):
         'verbose': True,
         'testing': True
     }
-    sc = ScribdDL(options)
+    sc = ScribdDLZ(options)
     sc.start_browser()
 
     def fin():

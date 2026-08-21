@@ -4,8 +4,8 @@
 
 import os
 import re
-from scribd_dl import ScribdDL
-from scribd_dl.utils import get_modified_time_diff
+from scribd_dlz import ScribdDLZ
+from scribd_dlz.utils import get_modified_time_diff
 
 
 def test_context_manager():

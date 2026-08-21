@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# pylint: disable=E0602,W0122
-
 """The setup script."""
 
 from setuptools import setup, find_packages
@@ -11,7 +9,7 @@ with open('README.rst', encoding='utf-8') as readme_file:
     long_description = '\n' + readme_file.read()
 
 requirements = [
-    'selenium>=3.8.0',
+    'selenium>=4.3.0',
     'Pillow>=4.0.0',
     'img2pdf>=0.2.3',
     'requests>=2.10.0'
@@ -25,8 +23,6 @@ test_requirements = []
 exec(compile(open('scribd_dl/version.py').read(), 'version.py', 'exec'))
 
 setup(
-    author=AUTHOR,
-    author_email=EMAIL,
     classifiers=[
         STATUS,
         'Intended Audience :: Developers',
@@ -43,19 +39,19 @@ setup(
     long_description=long_description,
     packages=find_packages(include=['scribd_dl']),
     package_data={
-        'scribd_dl': ['assets/README.txt', 'version.py']
+        'scribd_dlz': ['assets/README.txt', 'version.py']
     },
     include_package_data=True,
     entry_points={
         # 'console_scripts': ['scribd-dl = scribd_dl.scribd_dl:main']
         'console_scripts': ['scribd-dl = scribd_dl:main']
     },
-    keywords='scribd_dl',
-    name='scribd_dl',
+    keywords='scribd_dlz',
+    name='scribd_dlz',
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/giannisterzopoulos/scribd-dl',
+    url='https://github.com/Dfgsgh/scribd-dlz',
     version=VERSION,
     zip_safe=False,
 )
