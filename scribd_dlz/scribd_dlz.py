@@ -140,6 +140,7 @@ class ScribdDLZ(object):
 
     def _process_url(self, url):
         self.url = valid_url(url)
+        print(self.url)
         doc_id = re.search(r'(?P<id>\d+)', url).group('id') if self.url else None
         self.extra = {'label': doc_id}
 
