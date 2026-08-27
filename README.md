@@ -36,7 +36,7 @@ You can also use an other method.
 ### Step 2: open a commandline in the directory the repository has been cloned to
 
 The easiest way is just to cd there, like this:
-`$ cd scribd-dl`
+`$ cd scribd-dlz`
 
 ### Step 3: install using pip
 `$ pip install .`
