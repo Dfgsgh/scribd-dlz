@@ -43,8 +43,9 @@ The easiest way is just to cd there, like this:
 
 Chromedriver is required in order to work. See all available chromedriver downloads here:
 `https://sites.google.com/a/chromium.org/chromedriver/downloads`
+
 Put the chromedriver executable in your system PATH variable.
-| Scribd-dlz supports **Python 3.11.4+** and possibly older versions
+Scribd-dlz supports **Python 3.11.4+** and possibly older versions
 
 
 
