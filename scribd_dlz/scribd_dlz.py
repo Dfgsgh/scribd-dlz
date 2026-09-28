@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=C0413
-
+import base64
 import re
 import sys
 import os
@@ -26,6 +26,7 @@ from scribd_dlz.utils import (
 )
 
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.print_page_options import PrintOptions
 
 
 class ScribdDLZ(object):
@@ -51,6 +52,11 @@ class ScribdDLZ(object):
         self.logger = self._get_logger()
         self.driver = None
         self.doc_title = None
+
+        if self.options.get("fast"):
+            self.fast = True
+        else:
+            self.fast = False
 
     def set_pages(self, pages=None):
         if not pages:  # Select the whole document
@@ -135,8 +141,12 @@ class ScribdDLZ(object):
             raise ValueError('url has to be of type list, not %s', type(url_list))
         if not self.driver:
             self.start_browser()
-        for url in url_list:
-            self._process_url(url)
+        if not self.fast:
+            for url in url_list:
+                self._process_url(url)
+        else:
+            for url in url_list:
+                self._process_url_fast(url)
 
     def _process_url(self, url):
         self.url = valid_url(url)
@@ -247,6 +257,41 @@ class ScribdDLZ(object):
                 current_mean = sum(Sizes) / len(Sizes)
                 sleep_time = round(0.2 + (current_mean / 2000000), 5)  # --- Tweak it?
                 sleep_time = 1.2 if sleep_time > 1.2 else sleep_time
+
+
+    def _process_url_fast(self, url):
+        self.url = valid_url(url)
+        print(self.url)
+        doc_id = re.search(r'(?P<id>\d+)', url).group('id') if self.url else None
+        self.extra = {'label': doc_id}
+
+        self.logger.info('Visiting requested url', extra=self.extra)
+
+        try:
+            self.driver.get(self.url)  # Visit the requested url without waiting more than LOAD_TIME seconds
+        except TimeoutException:
+            pass
+
+        print_options = PrintOptions()
+        pdf_b64 = self.driver.print_page(print_options)
+
+        logging.disable(logging.CRITICAL)  # Disable img2pdf logging messages
+        pdf_bytes = base64.standard_b64decode(pdf_b64)
+        logging.disable(logging.NOTSET)
+
+        doc_title_edited = self._edit_title(self.doc_title)
+        filename = '{}-{}.pdf'.format(doc_title_edited, self.extra['label'])
+        with open(filename, 'wb') as file:
+            file.write(pdf_bytes)
+        self.logger.info('Destination: %s', filename, extra=self.extra)
+
+
+
+
+
+
+        
+
 
 
 if __name__ == '__main__':

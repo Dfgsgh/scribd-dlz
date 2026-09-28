@@ -28,11 +28,13 @@ def main(args=None):
             parser.add_argument('-p', '--pages', help='Range of pages to be selected (e.g. 10-20)', type=valid_pages)
             parser.add_argument('-v', '--verbose', help='Show verbose output in terminal', action='store_true')
             parser.add_argument('--version', action='version', version='%(prog)s {}'.format(__version__))
+            parser.add_argument('-f', '--fast', help='Activate fast mode', action='store_true')
             args = parser.parse_args()
 
         options = {
             'pages': args.pages,
-            'verbose': args.verbose
+            'verbose': args.verbose,
+            'fast': args.fast
         }
 
         scribd = ScribdDLZ(options)
