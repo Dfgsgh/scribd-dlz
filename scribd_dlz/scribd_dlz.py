@@ -275,11 +275,9 @@ class ScribdDLZ(object):
         self.doc_title = self.driver.title
 
         self.driver.execute_script('''
-var elements = document.getElementsByClassName('toolbar_top');
+var elements = document.getElementsByClassName('toolbar_drop');
 var requiredElement = elements[0];
-requiredElement.remove()
-elements = document.getElementsByClassName('toolbar_bottom');
-requiredElement = elements[0];''')
+requiredElement.remove()''')
 
         print_options = PrintOptions()
         pdf_b64 = self.driver.print_page(print_options)
