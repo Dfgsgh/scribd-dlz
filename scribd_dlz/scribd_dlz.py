@@ -280,11 +280,7 @@ var requiredElement = elements[0];
 requiredElement.remove()
 elements = document.getElementsByClassName('document_scroller');
 requiredElement = elements[0];
-requiredElement.style.overflow = 'visible';
-requiredElement.style.bottom = '0px'
-document.querySelectorAll("img").forEach(img => {
-    img.loading = "eager";
-}); ''')
+requiredElement.style.overflow = 'visible'; ''')
 
         print_options = PrintOptions()
         pdf_b64 = self.driver.print_page(print_options)
