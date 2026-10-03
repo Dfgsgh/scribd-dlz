@@ -277,10 +277,7 @@ class ScribdDLZ(object):
         self.driver.execute_script('''
 var elements = document.getElementsByClassName('toolbar_drop');
 var requiredElement = elements[0];
-requiredElement.remove()
-elements = document.getElementsByClassName('document_scroller');
-requiredElement = elements[0];
-requiredElement.style.overflow = 'visible'; ''')
+requiredElement.remove()''')
 
         print_options = PrintOptions()
         pdf_b64 = self.driver.print_page(print_options)
