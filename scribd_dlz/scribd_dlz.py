@@ -272,8 +272,6 @@ class ScribdDLZ(object):
         except TimeoutException:
             pass
 
-        self.doc_title = self.driver.title
-
         print_options = PrintOptions()
         pdf_b64 = self.driver.print_page(print_options)
 
